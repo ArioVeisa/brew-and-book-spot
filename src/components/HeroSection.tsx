@@ -1,29 +1,11 @@
-
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
-} from "@/components/ui/carousel";
-import { Gallery, Image } from "lucide-react";
+import { Image } from "lucide-react";
 
-const CAROUSEL_IMAGES = [
-  {
-    src: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085",
-    alt: "Coffee being poured into a cup",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1600093463592-8e36ae95ef56",
-    alt: "Coffee shop interior",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1514066558159-fc8c737ef259",
-    alt: "Coffee beans and brewing equipment",
-  },
-];
+const HERO_IMAGE = {
+  src: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085",
+  alt: "Coffee being poured into a cup",
+};
 
 const GALLERY_IMAGES = [
   {
@@ -46,23 +28,11 @@ const GALLERY_IMAGES = [
 
 const HeroSection = () => {
   const [mounted, setMounted] = useState(false);
-  const [api, setApi] = useState<any>(null);
 
   // Wait for client-side hydration
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  // Auto-scroll carousel
-  useEffect(() => {
-    if (!api) return;
-
-    const interval = setInterval(() => {
-      api.scrollNext();
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [api]);
 
   const scrollToReservation = () => {
     document.getElementById('reservation')?.scrollIntoView({ behavior: 'smooth' });
@@ -78,26 +48,16 @@ const HeroSection = () => {
         {/* Full width background overlay with reduced opacity */}
         <div className="absolute inset-0 bg-black/30 z-10"></div>
         
-        {/* Carousel */}
+        {/* Static Hero Image */}
         <div className="absolute inset-0 w-full h-full">
           {mounted && (
-            <Carousel className="w-full h-full" setApi={setApi} opts={{ loop: true }}>
-              <CarouselContent className="h-full">
-                {CAROUSEL_IMAGES.map((image, index) => (
-                  <CarouselItem key={index} className="h-full">
-                    <div className="h-full w-full">
-                      <img
-                        src={image.src}
-                        alt={image.alt}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-4 md:left-8 z-20 bg-amber-50/30 hover:bg-amber-50/50 border-none text-amber-800" />
-              <CarouselNext className="right-4 md:right-8 z-20 bg-amber-50/30 hover:bg-amber-50/50 border-none text-amber-800" />
-            </Carousel>
+            <div className="h-full w-full">
+              <img
+                src={HERO_IMAGE.src}
+                alt={HERO_IMAGE.alt}
+                className="w-full h-full object-cover"
+              />
+            </div>
           )}
         </div>
         
@@ -131,7 +91,7 @@ const HeroSection = () => {
                 onClick={scrollToGallery}
                 className="text-amber-50 hover:bg-amber-50/20 px-4 py-2 text-sm font-medium rounded-full flex items-center gap-2 mx-auto"
               >
-                <Gallery size={16} />
+                <Image size={16} />
                 View our Gallery
               </Button>
             </div>
