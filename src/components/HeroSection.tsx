@@ -37,9 +37,9 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#4a2c1d] to-[#2c1810] overflow-hidden">
+    <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden">
       {/* Full width background overlay with reduced opacity */}
-      <div className="absolute inset-0 bg-black/30 z-10"></div>
+      <div className="absolute inset-0 bg-black/40 z-10"></div>
       
       {/* Carousel */}
       <div className="absolute inset-0 w-full h-full">
@@ -76,14 +76,14 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               onClick={scrollToReservation}
-              className="bg-amber-700 hover:bg-amber-800 text-white px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+              className="bg-amber-700 hover:bg-amber-800 text-white px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg shadow-md"
             >
               Reserve a Table
             </Button>
             <Button 
               variant="outline" 
               onClick={() => document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' })}
-              className="border-white text-white hover:bg-white/20 px-8 py-6 text-lg font-medium rounded-full transition-all duration-300"
+              className="border-2 border-white text-white hover:bg-white/20 px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 shadow-md"
             >
               Explore Menu
             </Button>
