@@ -39,7 +39,7 @@ const HeroSection = () => {
   return (
     <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden">
       {/* Full width background overlay with reduced opacity */}
-      <div className="absolute inset-0 bg-black/40 z-10"></div>
+      <div className="absolute inset-0 bg-black/30 z-10"></div>
       
       {/* Carousel */}
       <div className="absolute inset-0 w-full h-full">
@@ -58,32 +58,32 @@ const HeroSection = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-4 z-20 bg-white/20 hover:bg-white/40 border-none text-white" />
-            <CarouselNext className="right-4 z-20 bg-white/20 hover:bg-white/40 border-none text-white" />
+            <CarouselPrevious className="left-4 md:left-8 z-20 bg-amber-50/30 hover:bg-amber-50/50 border-none text-amber-800" />
+            <CarouselNext className="right-4 md:right-8 z-20 bg-amber-50/30 hover:bg-amber-50/50 border-none text-amber-800" />
           </Carousel>
         )}
       </div>
       
-      {/* Content overlay */}
-      <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
-        <div className="backdrop-blur-sm bg-black/20 p-8 rounded-xl">
-          <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 animate-fade-in tracking-tight">
+      {/* Content overlay - centered with max width for better mobile experience */}
+      <div className="relative z-20 text-center px-4 sm:px-6 w-full max-w-3xl mx-auto">
+        <div className="backdrop-blur-md bg-amber-800/30 p-6 sm:p-8 rounded-xl shadow-lg">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-amber-50 mb-4 sm:mb-6 animate-fade-in tracking-tight">
             dcofee.cup
           </h1>
-          <p className="text-xl md:text-2xl text-gray-100 mb-8 font-light">
+          <p className="text-lg sm:text-xl md:text-2xl text-amber-50 mb-6 sm:mb-8 font-light">
             Where every cup tells a story, and every moment feels like home
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               onClick={scrollToReservation}
-              className="bg-amber-700 hover:bg-amber-800 text-white px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg shadow-md"
+              className="bg-amber-600 hover:bg-amber-700 text-amber-50 px-6 py-5 sm:px-8 sm:py-6 text-base sm:text-lg font-medium rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl shadow-md"
             >
               Reserve a Table
             </Button>
             <Button 
               variant="outline" 
               onClick={() => document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' })}
-              className="border-2 border-white text-white hover:bg-white/20 px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 shadow-md"
+              className="border-2 border-amber-50 bg-amber-50/20 text-amber-50 hover:bg-amber-50/30 px-6 py-5 sm:px-8 sm:py-6 text-base sm:text-lg font-medium rounded-full transition-all duration-300 shadow-md"
             >
               Explore Menu
             </Button>
@@ -91,9 +91,9 @@ const HeroSection = () => {
         </div>
       </div>
       
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+      <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
+        <div className="w-6 h-10 border-2 border-amber-50 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-amber-50 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>
